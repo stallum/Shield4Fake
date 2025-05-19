@@ -21,3 +21,5 @@ model.fit(X_train, y_train)
 # Salvar modelo e vetorizador
 joblib.dump(model, 'app/models/fake_news_model.pkl')
 joblib.dump(vectorizer, 'app/models/tfidf_vectorizer.pkl')
+
+#atualizar novos modelos
