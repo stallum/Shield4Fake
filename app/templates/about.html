@@ -10,7 +10,28 @@
   <!--Import Google Icon Font-->
 
  <style>
-  
+
+  .containerl{
+      width:500px;
+      height:940px;
+      margin:20px;
+      margin-left:160px;
+      background-color:slateblue;
+      border:3px solid black;
+      border-radius:25px;
+      padding:10px;
+  }
+  .containerd{
+      width:500px;
+      height:1020px;
+      margin:-960px;
+      margin-left:850px;
+      background-color:slateblue;
+      border:3px solid black;
+      border-radius:25px;
+      padding:10px;
+      margin-bottom: 20px;
+  }
 
  </style>
  </head>
@@ -33,6 +54,38 @@
   <!-- brand-logo = posiciona e estiliza o link como LOGOTIPO PRINCIPAL da marca da barra de navegação (geralmente à esquerda)  --> 
   </nav>
   
+  <section>
+        <div class="containerl">
+         <div class="container"> 
+          <h4 style="text-align: center;">Como funciona o sistema?</h4>
+          <hr>
+         </div>
+         <br>
+         <div class="container">
+          <p style="font-size:120%;">O sistema analisa textos para verificar se uma notícia é verdadeira ou falsa. Ele faz isso extraindo informações linguísticas do texto e aplicando essas informações em um modelo de aprendizado de máquina.</p>
+          <p style="font-size:120%;">Atualmente, está disponível apenas o modelo Palavras do Texto, que utiliza a técnica <strong>Bag of Words</strong>. Esse método transforma o texto em um vetor numérico com base na presença ou ausência das 10.395 palavras mais relevantes do banco de dados utilizado no treinamento.</p>
+          <p style="font-size:120%;">Esses dados são processados por um classificador chamado <strong>Support Vector Machine</strong>, que determina se a notícia é falsa ou verdadeira. Em testes controlados, o sistema atingiu cerca de <strong>97% de precisão</strong>.</p>
+          <br>
+          <p style="font-size:120%;"><strong>Importante:</strong> o Shield4Fake é apenas uma ferramenta de apoio. Não deve ser usado como única fonte de verificação. Sempre confira informações em fontes confiáveis antes de compartilhar.</p>
+         </div>
+        </div>
+  </section> 
+
+  <section>
+        <div class="containerd">
+         <div class="container"> 
+          <h4 style="text-align: center;">O projeto</h4>
+          <hr>
+         </div>
+         <br>
+         <div class="container">
+          <p style="font-size:120%;">Este site é uma demonstração dos resultados obtidos no projeto "Detecção Automática de Notícias Falsas para o Português e Inglês", desenvolvido com o objetivo de explorar técnicas de processamento de linguagem natural (PLN) e aprendizado de máquina aplicadas ao combate à desinformação. A motivação principal do projeto é oferecer ferramentas que possam auxiliar usuários, pesquisadores e jornalistas na tarefa de identificar automaticamente conteúdos potencialmente falsos, com foco especial em notícias veiculadas na internet.</p>
+          <p style="font-size:120%;">O sistema foi treinado utilizando o córpus Fake.Br, um conjunto de dados composto por notícias reais e falsas em português, cuidadosamente coletadas e rotuladas. Esse córpus serve como base para o treinamento dos modelos, permitindo que eles "aprendam" os padrões linguísticos e estruturais que comumente distinguem uma notícia verídica de uma falsa.</p>
+          <br>
+          <p style="font-size:120%;"><strong>Importante:</strong> O projeto mostra que IA pode ajudar a detectar fake news, mas deve ser usada como apoio, não como única fonte. É um passo importante no combate à desinformação.</p> 
+        </div>
+        </div>
+  </section> 
 
  </body>
 </html>
