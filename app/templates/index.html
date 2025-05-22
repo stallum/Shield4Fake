@@ -41,29 +41,29 @@
   }
 
   #quadrado {
-      display: none; /* escondido por padrão */
+      display: none; /* Escondido por padrão */
       width: 455px;
       height: 325px;
       background-color: #4CAF50;
-      position: fixed;
+      position: fixed; /* Fixa o quadrado no mesmo lugar da tela (não rola com a página) */
       margin-top: 40px;
       margin-left: 98px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
       padding: 20px;
       color: black;
-      z-index: 1000;
+      z-index: 1000; /* Garante que fique acima de outros elementos */
       border-radius: 10px;
     }
 
     #fundo {
-      display: none; /* fundo escuro para destaque */
-      position: fixed;
+      display: none; /* Fundo escuro para destaque */
+      position: fixed; 
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(0,0,0,0.5);
-      z-index: 999;
+      background-color: rgba(0,0,0,0.5); /* #fundo cobre toda a tela com um fundo escuro semi-transparente (rgba(0,0,0,0.5)). */
+      z-index: 999; /* O coloca atrás do quadrado, mas acima do restante da página */
     }
   
    </style>
@@ -107,7 +107,7 @@
             <div class="container"> 
                 <form id="formNoticia">
                     <div>
-                        <input type="text" name="noticia" size="20" placeholder="Digite a notícia aqui" required>
+                        <input type="text" name="noticia" placeholder="Digite a notícia aqui" required>
                     </div>
                     <div>
                         <button type="submit">Verificar</button>
@@ -154,7 +154,30 @@
             mostrarQuadrado();
         })
    </script>  
-   <!--  
+   <!-- 
+        //Esta função exibe o quadrado e o fundo escuro, mudando display: none para display: block.
+        function mostrarQuadrado() {
+            document.getElementById('quadrado').style.display = 'block';
+            document.getElementById('fundo').style.display = 'block';
+        }
+
+        //Esta função esconde tanto o quadrado quanto o fundo, voltando ao estado inicial.
+        function fecharQuadrado() {
+            document.getElementById('quadrado').style.display = 'none';
+            document.getElementById('fundo').style.display = 'none';
+        }
+
+        // Captura o evento de envio do formulário
+        document.getElementById('formNoticia').addEventListener('submit', function(e){
+
+            e.preventDefault(); // Impede o envio tradicional (recarregar página)
+
+            mostrarQuadrado(); // Mostra o quadrado após "envio"
+        }) -->
+   
+   
+   
+        <!--  
     </form>
     {% if prediction %}
         <h2>Resultado: {{ prediction }}</h2>
