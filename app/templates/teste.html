@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Link para CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" >
+    <!-- <link rel="stylesheet" href="../static/css/styles.css" > -->
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='img/logo.png') }}">
+    <title>Detector FakeNews</title>
+</head>
+<body>
+    <div class="formulario">
+        <h1>Detector de Fake News</h1>
+        <form method="POST">
+            <textarea name="noticia" rows="5" cols="50" placeholder="Digite sua notícia aqui..." class='entrada-noticia' required></textarea><br>
+            <div style="text-align: center; padding: 0.2rem;">
+                <button type="submit">Verificar</button>
+            </div>
+        </form>
+    
+        {% if resultado %}
+            <h2>Resultado</h2>
+            <p>{{ resultado.label }}</p>
+            <p>{{ resultado.confianca }}</p>
+        {% endif %}
+    </div>
+
+</body>
+</html>

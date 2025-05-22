@@ -18,14 +18,9 @@ def classificarNoticia(texto):
         logits = outputs.logits
         probs = F.softmax(logits, dim=1)
         predicted_class = int(torch.argmax(probs, dim=1).item())
-        confidence = probs[0][predicted_class].item()
+        confianca = probs[0][predicted_class].item()
 
+        # Classificação
         labels = ['Fake', 'Real']
-        return labels[predicted_class], confidence
+        return labels[predicted_class], confianca
 
-user_input = input("Digite a notícia para classificar: ")
-
-# Classificação
-label, confidence = classificarNoticia(user_input)
-print(f"\n🔎 Resultado: {label}")
-print(f"📊 Confiança: ({confidence*100:.2f}% de confiança)")

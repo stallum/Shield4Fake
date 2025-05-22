@@ -1,0 +1,27 @@
+html {
+    align-items: center;
+    align-content: center;
+    background-color: #1a1a1e;
+    color:beige;
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    align-items: center;     /* Alinha horizontalmente */
+    justify-content: center; /* Alinha verticalmente */
+    min-height: 100vh;
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+}
+
+.entrada-noticia {
+    background-color: #1c1c1c;  /* fundo escuro */
+    color: #ffffff;             /* texto branco */
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 16px;
+    width: 100%;
+    resize: vertical;
+}
