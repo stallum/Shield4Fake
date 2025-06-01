@@ -12,8 +12,6 @@ def index():
         resultado = {
             # Classificação
             'label': f'🔎{label.upper()}'
-            # 'noticia': f'{noticia}',
-            # 'noticia_traduzida': f'{noticia_traduzida}'
         }
     return render_template('teste.html', resultado=resultado)
 
