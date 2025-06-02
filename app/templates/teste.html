@@ -9,15 +9,16 @@
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='img/logo.png') }}">
     <!-- <link rel="shortcut icon" href="../static/img/logo.png" type="image/x-icon"> -->
+    <script src="../static/scripts.js" defer></script>
     <title>Detector FakeNews</title>
 </head>
 <body>
     <div class="formulario">
         <h1>Detector de Fake News</h1>
-        <form method="POST">
-            <textarea name="noticia" rows="5" cols="50" placeholder="Digite sua notícia aqui..." class='entrada-noticia' required></textarea><br>
+        <form method="POST" id="form">
+            <textarea name="noticia" rows="5" cols="50" placeholder="Digite sua notícia aqui..." class='entrada-noticia' required minlength="1000"></textarea><br>
             <div style="text-align: center; padding: 0.2rem;">
-                <button type="submit">Verificar</button>
+                <button type="submit" onclick="return ">Verificar</button>
             </div>
         </form>
     

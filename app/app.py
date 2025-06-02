@@ -2,6 +2,7 @@ from flask import Flask, render_template, request
 from scripts.modelo import classificarNoticia
 app = Flask(__name__)
 
+# rota de home do projeto
 @app.route('/', methods=['GET', 'POST'])
 def index():
     resultado = None
