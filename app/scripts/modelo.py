@@ -1,5 +1,4 @@
 import pickle
-from sklearn.metrics import accuracy_score
 
 
 # Carregar modelo e vetorizador já treinados
@@ -16,4 +15,10 @@ labels = ['Fake', 'Real']
 def classificarNoticia(texto: str):
     texto_vetor = vetorizador.transform([texto])
     label = modelo.predict(texto_vetor)[0]
+
+    if label.upper() == 'TRUE':
+        label = 'Real'
+    else: 
+        label = 'Fake'
+
     return label
