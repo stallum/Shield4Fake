@@ -12,12 +12,14 @@ def index():
     
     if request.method == 'POST':
         
-        if 'link' in request.form.get('link', ''):
-            url = request.form['link']
-            noticia = extrairTexto(url)
-        elif 'noticia' in request.form.get('noticia', '').strip():
-            noticia = request.form['noticia']
-        else: 
+        link_input = request.form.get('link', '').strip()
+        noticia_input = request.form.get('noticia', '').strip()
+
+        if link_input:
+            noticia = extrairTexto(link_input)
+        elif noticia_input:
+            noticia = noticia_input
+        else:
             noticia = ''
         
 
@@ -25,9 +27,9 @@ def index():
         idioma = request.form.get('idioma', 'pt')
 
         # Chama o classificador certo
-        if noticia == '':
-            label = '❗Não há uma noticia inserida'
-        elif idioma == 'pt':
+        # if noticia == ' ':
+        #     label = '❗Não há uma noticia inserida'
+        if idioma == 'pt':
             label = classificarNoticiaPt(str(noticia))
         else:
             label = classificarNoticiaEn(str(noticia))

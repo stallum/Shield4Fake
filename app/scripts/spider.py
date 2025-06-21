@@ -9,9 +9,9 @@ class NewsSpider(scrapy.Spider):
     def parse(self, response):
         for p in response.css('div.glb-grid'):
             item = {
-                'title': p.css('h1.content-head__title::text').get(),
-                'subtitle': p.css('h2.content-head__subtitle::text').get(),
-                'text': p.css('p.content-text__container::text').getall(),
+                'title': p.css('h1::text').get(),
+                'subtitle': p.css('h2::text').get(),
+                'text': p.css('p::text').getall(),
             }
 
             yield item
@@ -36,9 +36,10 @@ def extrairTexto(link = ' '):
 
     noticia = noticia_limpa
 
-    # with open('noticia_extraida_limpa.txt', 'w', encoding='utf-8') as f:
-    #     f.write(noticia.strip())
+    with open('noticia_extraida_limpa.txt', 'w', encoding='utf-8') as f:
+        f.write(noticia.strip())
 
+    print('deu certo esse carai')
     return noticia
 
-extrairTexto('https://g1.globo.com/mundo/noticia/2025/06/12/perda-de-sustentacao-problema-nos-motores-calculo-de-peso-as-hipoteses-para-a-queda-do-aviao-da-air-india.ghtml')
+# extrairTexto('https://g1.globo.com/mundo/noticia/2025/06/12/perda-de-sustentacao-problema-nos-motores-calculo-de-peso-as-hipoteses-para-a-queda-do-aviao-da-air-india.ghtml')
