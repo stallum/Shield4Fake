@@ -3,10 +3,13 @@ from scrapy.http import TextResponse
 import requests
 import re
 
-class NewsSpider(scrapy.Spider):
+class NewsSpider():
     name = 'Noticias'
 
     def parse(self, response):
+        """
+        Essa função é usada para extrair o texto de notícias no padrão G1, notícias brasileiras
+        """
         for p in response.css('div.glb-grid'):
             item = {
                 'title': p.css('h1::text').get(),
@@ -16,7 +19,10 @@ class NewsSpider(scrapy.Spider):
 
             yield item
 
-def extrairTexto(link = ' '):
+def organizarTexto(link = ' '):
+    
+
+
     url = str(link)
     response_html = requests.get(url).text
     response = TextResponse(url=url, body=response_html, encoding='utf-8')
@@ -36,10 +42,6 @@ def extrairTexto(link = ' '):
 
     noticia = noticia_limpa
 
-    with open('noticia_extraida_limpa.txt', 'w', encoding='utf-8') as f:
-        f.write(noticia.strip())
-
-    print('deu certo esse carai')
     return noticia
 
-# extrairTexto('https://g1.globo.com/mundo/noticia/2025/06/12/perda-de-sustentacao-problema-nos-motores-calculo-de-peso-as-hipoteses-para-a-queda-do-aviao-da-air-india.ghtml')
+# organizarTexto('https://g1.globo.com/mundo/noticia/2025/06/12/perda-de-sustentacao-problema-nos-motores-calculo-de-peso-as-hipoteses-para-a-queda-do-aviao-da-air-india.ghtml')
