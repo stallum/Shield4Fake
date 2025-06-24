@@ -15,10 +15,10 @@
     <nav>
         <div class="nav-wrapper" style="background-color: slateblue">
             <div class="container">
-                <a href="{{ url_for('index') }}" class="brand-logo" style="font-size:220%">Shield4Fake</a>
+                <a href="{{ url_for('index') }}" class="brand-logo">Shield4Fake</a>
                 <ul class="right">
-                    <li><a href="./index.html">Detector</a></li>
-                    <li><a href="./about.html">Sobre o Projeto</a></li>
+                    <li><a href="{{ url_for('index') }}">Detector</a></li>
+                    <li><a href="{{ url_for('about') }}">Sobre o Projeto</a></li>
                 </ul>
             </div>
         </div>
@@ -54,7 +54,7 @@
         
         <div class="container1l">
             <h4>Como usar?</h4>
-            <p>Copie e cole o texto de uma notícia na caixa ao lado ou cole o link, selecione o idioma e clique em "Verificar".</p>
+            <p>Copie e cole o texto de uma notícia na caixa ao lado ou cole o link, selecione o idioma e clique em "Verificar". O sistema analisará a escrita — como o uso de palavras e padrões gramaticais — e, com base nisso, um modelo de aprendizado de máquina decidirá se a notícia é provavelmente verdadeira ou falsa.</p>
         </div>
 
     </section>

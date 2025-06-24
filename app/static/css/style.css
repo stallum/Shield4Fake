@@ -1,22 +1,51 @@
-h4, h2, h5 {
-    color: whitesmoke;
-    font-weight: bold;
-    font-family: 'Poppins', sans-serif;
+a {
+    text-decoration: none;
 }
 
-.row-section {
+.nav-wrapper {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+}
+
+.brand-logo {
+    font-size: 24px;
+    color: white; 
+}
+.right {
+    margin-left: auto; 
+    display: flex;
+    gap: 20px;
+    list-style: none;
+}
+.right a {
+    color: white;
+    font-weight: bold;
+}
+.right a:hover {
+    text-decoration: underline;
+}
+
+.row-section, .container {
     width: 100%;
     display: flex;
     justify-content: center;
-    align-items: flex-start;
     gap: 40px; /* espaço entre os blocos */
     margin: 40px 20px;
     flex-wrap: wrap; /* mantém responsivo */
     
 }
 
+.container {
+    color: whitesmoke;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    align-items: center;
+    
+}
+
 .maiorcontainer, .container1l {
-    background-color: slateblue; /* Cor de fundo para as seções */
+    background-color: slateblue; 
     padding: 20px;
     margin: 10px;
     border-radius: 8px;

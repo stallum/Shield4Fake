@@ -27,9 +27,9 @@ def index():
         idioma = request.form.get('idioma', 'pt')
 
         # Chama o classificador certo
-        if noticia == ' ':
+        if noticia == '':
             label = '❗Não há uma noticia inserida'
-        elif noticia == 'não foi possível extrair o texto desse link, porfavor copie todos os titulos, subtitulos e textos da notícia e copie na caixa acima':
+        elif noticia == '❗Não foi possível extrair o texto desse link, porfavor copie todos os titulos, subtitulos e textos da notícia e copie na caixa acima':
             label = noticia
             noticia = ' '
         elif idioma == 'pt':
@@ -43,6 +43,10 @@ def index():
             'noticia' :  f'{noticia}'
         }
     return render_template('index.html', resultado=resultado)
+
+@app.route('/about')
+def about():
+    return render_template('about.html')
 
 if __name__ == '__main__':
     app.run(debug=True)

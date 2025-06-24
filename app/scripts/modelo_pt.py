@@ -5,7 +5,7 @@ import pickle
 with open('app/modelos/modelo_treinado_pt.pkl', 'rb') as f:
     modelo = pickle.load(f)
 
-with open('app/modelos/vetorizador.pkl', 'rb') as f:
+with open('app/modelos/vetorizadorPt.pkl', 'rb') as f:
     vetorizador = pickle.load(f)
 
 # Função que recebe uma string e retorna o rótulo

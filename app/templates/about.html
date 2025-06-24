@@ -3,6 +3,7 @@
  <head>
 
   <title>Shield4Fake</title>
+  <link rel="icon" href="{{ url_for('static', filename='images/logo.png') }}" />
   <link rel="icon" type="image/png" href="../statics/images/logo.png">
   <link rel="stylesheet" type="text/css" href="/static/css/app.css">
   <!--Import materialize.css-->
@@ -10,6 +11,33 @@
   <!--Import Google Icon Font-->
 
  <style>
+  a {
+    text-decoration: none;
+  }
+
+  .nav-wrapper {
+      display: flex; 
+      justify-content: space-between; 
+      align-items: center;
+  }
+
+  .brand-logo {
+      font-size: 24px;
+      color: white; 
+  }
+  .right {
+      margin-left: auto; 
+      display: flex;
+      gap: 20px;
+      list-style: none;
+  }
+  .right a {
+      color: white;
+      font-weight: bold;
+  }
+  .right a:hover {
+      text-decoration: underline;
+  }
 
   .containerl{
       width:500px;
@@ -42,10 +70,10 @@
   <nav>
    <div class="nav-wrapper" style="background-color: slateblue">
     <div class="container">
-     <a href=".\index.html" class="brand-logo" style="font-size:220%" style="color:rbg(255,255,255)">Shield4Fake</a>
+     <a href="{{ url_for('index') }}" class="brand-logo" style="font-size:220%" style="color:rbg(255,255,255)">Shield4Fake</a>
      <ul class="right">
-       <li><a href=".\index.html">Detector</a></li>
-       <li><a href=".\about.html">Sobre o Projeto</a></li>
+       <li><a href="{{ url_for('index') }}">Detector</a></li>
+       <li><a href="{{ url_for('about') }}">Sobre o Projeto</a></li>
       </ul>
     </div>
    </div>
@@ -62,9 +90,9 @@
          </div>
          <br>
          <div class="container">
-          <p style="font-size:120%;">O sistema analisa textos para verificar se uma notícia é verdadeira ou falsa. Ele faz isso extraindo informações linguísticas do texto e aplicando essas informações em um modelo de aprendizado de máquina.</p>
-          <p style="font-size:120%;">Atualmente, está disponível apenas o modelo Palavras do Texto, que utiliza a técnica <strong>Bag of Words</strong>. Esse método transforma o texto em um vetor numérico com base na presença ou ausência das 10.395 palavras mais relevantes do banco de dados utilizado no treinamento.</p>
-          <p style="font-size:120%;">Esses dados são processados por um classificador chamado <strong>Support Vector Machine</strong>, que determina se a notícia é falsa ou verdadeira. Em testes controlados, o sistema atingiu cerca de <strong>97% de precisão</strong>.</p>
+          <p style="font-size:120%;"></p>
+          <p style="font-size:120%;"></p>
+          <p style="font-size:120%;"></p>
           <br>
           <p style="font-size:120%;"><strong>Importante:</strong> o Shield4Fake é apenas uma ferramenta de apoio. Não deve ser usado como única fonte de verificação. Sempre confira informações em fontes confiáveis antes de compartilhar.</p>
          </div>
@@ -79,8 +107,8 @@
          </div>
          <br>
          <div class="container">
-          <p style="font-size:120%;">Este site é uma demonstração dos resultados obtidos no projeto "Detecção Automática de Notícias Falsas para o Português e Inglês", desenvolvido com o objetivo de explorar técnicas de processamento de linguagem natural (PLN) e aprendizado de máquina aplicadas ao combate à desinformação. A motivação principal do projeto é oferecer ferramentas que possam auxiliar usuários, pesquisadores e jornalistas na tarefa de identificar automaticamente conteúdos potencialmente falsos, com foco especial em notícias veiculadas na internet.</p>
-          <p style="font-size:120%;">O sistema foi treinado utilizando o córpus Fake.Br, um conjunto de dados composto por notícias reais e falsas em português, cuidadosamente coletadas e rotuladas. Esse córpus serve como base para o treinamento dos modelos, permitindo que eles "aprendam" os padrões linguísticos e estruturais que comumente distinguem uma notícia verídica de uma falsa.</p>
+          <p style="font-size:120%;"></p>
+          <p style="font-size:120%;"></p>
           <br>
           <p style="font-size:120%;"><strong>Importante:</strong> O projeto mostra que IA pode ajudar a detectar fake news, mas deve ser usada como apoio, não como única fonte. É um passo importante no combate à desinformação.</p> 
         </div>

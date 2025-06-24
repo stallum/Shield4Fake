@@ -3,43 +3,34 @@ from scrapy.http import TextResponse
 import requests
 import re
 
-class NewsSpider():
-    name = 'Noticias'
-
-    def parse(self, response):
-        """
-        Essa função é usada para extrair o texto de notícias no padrão G1, notícias brasileiras
-        """
-        for p in response.css('div.glb-grid'):
-            item = {
-                'title': p.css('h1::text').get(),
-                'subtitle': p.css('h2::text').get(),
-                'text': p.css('p::text').getall(),
-            }
-
-            yield item 
 
 def organizarTexto(link = ' '):
-    
-    url = str(link)
-    response_html = requests.get(url).text
-    response = TextResponse(url=url, body=response_html, encoding='utf-8')
-    spider = NewsSpider()
-    for item in spider.parse(response):
-        item['title'] = item['title']
-        item['subtitle'] = item['subtitle']
-        item['text'] = item['text']
+    try:
+        #requisição da página
+        url = str(link)
+        response_html = requests.get(url).text
+        response = TextResponse(url=url, body=response_html, encoding='utf-8')
 
-    noticia = str(item['title']) + str(item['subtitle']) + str(item['text'])
-    noticia = str(noticia)
+        if not response.css('div.glb-grid'):
+               return '❗Não foi possível extrair o texto desse link, porfavor copie todos os titulos, subtitulos e textos da notícia e copie na caixa acima'
+            
+        for p in response.css('div.glb-grid'):
+                item = {
+                    'title': p.css('h1::text').get(),
+                    'subtitle': p.css('h2::text').get(),
+                    'text': p.css('p::text').getall(),
+                }
 
-    # remove pontuação, colchetes, listas, etc...
-    noticia_limpa = re.sub(r"[\[\],\.\:\;\!\?\“\”\"\'\(\)]", " ", noticia)
+        noticia = str(str(item['title']) + str(item['subtitle']) + str(item['text']))
 
-    noticia_limpa = re.sub(r'\s+', ' ', noticia_limpa)
+        # remove pontuação, colchetes, listas, etc...
+        noticia = re.sub(r"[\[\],\.\:\;\!\?\“\”\"\'\(\)]", " ", noticia)
 
-    noticia = noticia_limpa
+        noticia = re.sub(r'\s+', ' ', noticia)
 
-    return noticia
+        return noticia.strip()
+    except Exception as e:
+        print(f"[ERRO ao extrair texto da URL]: {e}")
+        return '❗Ocorreu um erro ao tentar acessar o link. Verifique se ele está correto.'
 
 # organizarTexto('https://g1.globo.com/mundo/noticia/2025/06/12/perda-de-sustentacao-problema-nos-motores-calculo-de-peso-as-hipoteses-para-a-queda-do-aviao-da-air-india.ghtml')
