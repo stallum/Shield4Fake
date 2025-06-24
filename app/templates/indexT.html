@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shield4Fake</title>
+    <link rel="icon" type="image/png" href="../statics/images/logo.png">
+    <link rel="stylesheet" type="text/css" href="/static/css/app.css">
+    <!--Import materialize.css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+    <!--Import Google Icon Font-->
+   <style>
+    h4, h2 {
+        color: whitesmoke;
+        font-weight: bold;
+        font-family: 'Poppins', sans-serif;
+    }
+    .maiorcontainer{
+      width:660px;
+      height:600px;
+      margin:20px; 
+      margin-left:410px;
+      background-color:slateblue;
+      border:3px solid black;
+      border-radius:25px;
+  }
+  .container1l{
+      width:320px;
+      height:350px;
+      margin:20px;
+      margin-left:40px;
+      background-color:slateblue;
+      border:3px solid black;
+      border-radius:25px;
+      padding:10px;
+  }
+  .container2r{
+      width:320px;
+      height:350px;
+      margin:-370px;
+      margin-left:1120px;
+      background-color:slateblue;
+      border:3px solid black;
+      border-radius:25px;
+      padding:10px;
+  }
+
+  #quadrado {
+      display: none; /* Escondido por padrão */
+      width: 455px;
+      height: 325px;
+      background-color: #4CAF50;
+      position: fixed; /* Fixa o quadrado no mesmo lugar da tela (não rola com a página) */
+      margin-top: 40px;
+      margin-left: 98px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      padding: 20px;
+      color: black;
+      z-index: 1000; /* Garante que fique acima de outros elementos */
+      border-radius: 10px;
+    }
+
+    #fundo {
+      display: none; /* Fundo escuro para destaque */
+      position: fixed; 
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.5); /* #fundo cobre toda a tela com um fundo escuro semi-transparente (rgba(0,0,0,0.5)). */
+      z-index: 999; /* O coloca atrás do quadrado, mas acima do restante da página */
+    }
+  
+   </style>
+</head>
+<body style="background-color:rgb(28,28,28);">
+
+    <nav>
+        <div class="nav-wrapper" style="background-color: slateblue">
+            <div class="container">
+                <a href=".\index.html" class="brand-logo" style="font-size:220%" style="color:rbg(255,255,255)">Shield4Fake</a>
+                <ul class="right">
+                    <li><a href=".\index.html">Detector</a></li>
+                    <li><a href=".\about.html">Sobre o Projeto</a></li>
+                </ul>
+            </div>
+        </div> 
+    <!-- nav-wrapper = define um container da barra de navegação, dá estilo e posicionamento a ela  -->
+    <!-- container = centraliza e limita a largura do conteúdo da barra de navegação  -->
+    <!-- brand-logo = posiciona e estiliza o link como LOGOTIPO PRINCIPAL da marca da barra de navegação (geralmente à esquerda)  --> 
+    </nav>
+       
+       
+    <section>
+        <div class="container1l">
+            <h4>Como usar?</h4>
+            <p style="font-size:120%;">Copie e cole o texto de uma notícia na caixa ao lado e clique em "Verificar". O sistema analisará a escrita — como o uso de palavras e padrões gramaticais — e, com base nisso, um modelo de aprendizado de máquina decidirá se a notícia é provavelmente verdadeira ou falsa.</p>
+        </div>
+    </section> 
+     
+    <section>
+        <div class="container2r">
+         <h4>Resultado:</h4>
+         <p style="font-size:120%;">Atenção: o conteúdo apresentado pode não ser verdadeiro. Procure por evidências em fontes oficiais e bem estabelecidas.
+         <p style="font-size:120%;">(Exemplo de resultado com base na notícia exibida ao lado)</p>
+        </div>
+    </section> 
+     
+    <section>
+        <div class="maiorcontainer">
+            <h2 style="text-align:center;">Detector de Fake News</h2>
+            <div class="container"> 
+                <form id="formNoticia">
+                    <div>
+                        <input type="text" name="noticia" placeholder="Digite a notícia aqui" required>
+                    </div>
+                    <div>
+                        <button type="submit">Verificar</button>
+                    </div>
+                </form>
+            </div>
+            
+            <div id="fundo" onclick="fecharQuadrado()"></div>
+            <div id="quadrado">
+                <p style="font-size: 120%; font-weight: bold;">🟢 Esta notícia parece ser verdadeira.</p>
+                <p>A análise do conteúdo indica que ele segue padrões comuns a textos confiáveis.</p>
+                <p><strong>Importante:</strong> No entanto, ainda é recomendado verificar as informações em fontes oficiais e confiáveis.</p>
+                <br>
+                <br>
+                <br>
+                <button onclick="fecharQuadrado()">Fechar</button>
+            </div>
+
+            <div class="container">
+                <br> 
+                <h5>Exemplo de notícia a ser testada:</h5>
+                <p>
+                    <strong>Título:</strong> Cientistas descobrem que o desmatamento da Amazônia reduz o aquecimento global.
+                </p> 
+                <p>         
+                    Um grupo de cientistas internacionais publicou nesta semana um estudo afirmando que o desmatamento da floresta amazônica ajuda a diminuir as temperaturas globais. Segundo o relatório, a retirada de árvores permite que o solo reflita mais luz solar, reduzindo o efeito estufa. O estudo ainda sugere que políticas ambientais devem reconsiderar o papel das florestas tropicais no clima. A pesquisa teria sido validada por diversas instituições europeias, e já começou a influenciar decisões políticas em países da América do Sul. Especialistas afirmam que este pode ser o início de uma nova abordagem na luta contra as mudanças climáticas.</p>	
+                </p>     
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function mostrarQuadrado() {
+            document.getElementById('quadrado').style.display = 'block';
+            document.getElementById('fundo').style.display = 'block';
+        }
+
+        function fecharQuadrado() {
+            document.getElementById('quadrado').style.display = 'none';
+            document.getElementById('fundo').style.display = 'none';
+        }
+        document.getElementById('formNoticia').addEventListener('submit', function(e){
+            e.preventDefault();
+            mostrarQuadrado();
+        })
+   </script>  
+   <!-- 
+        //Esta função exibe o quadrado e o fundo escuro, mudando display: none para display: block.
+        function mostrarQuadrado() {
+            document.getElementById('quadrado').style.display = 'block';
+            document.getElementById('fundo').style.display = 'block';
+        }
+
+        //Esta função esconde tanto o quadrado quanto o fundo, voltando ao estado inicial.
+        function fecharQuadrado() {
+            document.getElementById('quadrado').style.display = 'none';
+            document.getElementById('fundo').style.display = 'none';
+        }
+
+        // Captura o evento de envio do formulário
+        document.getElementById('formNoticia').addEventListener('submit', function(e){
+
+            e.preventDefault(); // Impede o envio tradicional (recarregar página)
+
+            mostrarQuadrado(); // Mostra o quadrado após "envio"
+        }) -->
+   
+   
+   
+        <!--  
+    </form>
+    {% if prediction %}
+        <h2>Resultado: {{ prediction }}</h2>
+    {% endif %}
+    -->
+</body>
+</html>

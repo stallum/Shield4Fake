@@ -10,14 +10,14 @@ class NewsSpider():
         """
         Essa função é usada para extrair o texto de notícias no padrão G1, notícias brasileiras
         """
-        for p in response.css('div.glb-grid'):
+        for p in response.css('div'):
             item = {
                 'title': p.css('h1::text').get(),
                 'subtitle': p.css('h2::text').get(),
                 'text': p.css('p::text').getall(),
             }
 
-            yield item
+            yield item 
 
 def organizarTexto(link = ' '):
     

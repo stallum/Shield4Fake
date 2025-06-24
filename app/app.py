@@ -42,7 +42,7 @@ def index():
             'label': f'🔎{label}',
             'noticia' :  f'{noticia}'
         }
-    return render_template('teste.html', resultado=resultado)
+    return render_template('index.html', resultado=resultado)
 
 if __name__ == '__main__':
     app.run(debug=True)
